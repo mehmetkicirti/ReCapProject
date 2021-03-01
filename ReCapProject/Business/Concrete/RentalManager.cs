@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -16,6 +18,7 @@ namespace Business.Concrete
         {
             _iRentalDal = rentalDal;
         }
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
             IResult failedLogic = BusinessTool.GetFailedLogic(CheckRentedCarIsReturnedDateExist(rental.ReturnDate));
@@ -42,7 +45,7 @@ namespace Business.Concrete
             _iRentalDal.Remove(rental);
             return new SuccessResult(Messages.SuccessfullyDeleted);
         }
-
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)
         {
             _iRentalDal.Update(rental);

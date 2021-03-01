@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -17,17 +19,11 @@ namespace Business.Concrete
         {
             _iCarDal = carDal;
         }
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             // the following rules will be in ValidationAspect give as an attribute
-            if (car.Description.Length < 2)
-            {
-                return new ErrorResult(Messages.CarNameAtLeastTwoCharacter);
-            }
-            if (car.DailyPrice < 0)
-            {
-                return new ErrorResult(Messages.DailyPriceGreaterThanZero);
-            }
+            
             var errorLogic = BusinessTool.GetFailedLogic(CheckAddedCarAlreadyExist(car.Id));
             if (!errorLogic.IsSuccess)
             {
@@ -73,6 +69,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_iCarDal.GetCarsDetails(), Messages.SuccessfullyListedObjects);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
         {
             _iCarDal.Update(car);
