@@ -46,38 +46,38 @@ namespace ConsoleUI
             //GetCarsOfDetails(); 
             #endregion
             #region EF
-            _iBrandService.Add(new Brand()
-            {
-                Name = "Volkswagen"
-            });
-            _iBrandService.Add(new Brand()
-            {
-                Name = "Seat"
-            });
-            _iColorService.Add(new Color()
-            {
-                Name = "White"
-            });
-            _iColorService.Add(new Color()
-            {
-                Name = "Red"
-            });
-            _iCarService.Add(new Car()
-            {
-                BrandId = 1,
-                ColorId = 1,
-                DailyPrice = 125,
-                Description = "Golf",
-                ModelYear = 2017
-            });
-            _iCarService.Add(new Car()
-            {
-                BrandId = 2,
-                ColorId = 2,
-                DailyPrice = 180,
-                Description = "Leon",
-                ModelYear = 2020
-            });
+            //_iBrandService.Add(new Brand()
+            //{
+            //    Name = "Volkswagen"
+            //});
+            //_iBrandService.Add(new Brand()
+            //{
+            //    Name = "Seat"
+            //});
+            //_iColorService.Add(new Color()
+            //{
+            //    Name = "White"
+            //});
+            //_iColorService.Add(new Color()
+            //{
+            //    Name = "Red"
+            //});
+            //_iCarService.Add(new Car()
+            //{
+            //    BrandId = 1,
+            //    ColorId = 1,
+            //    DailyPrice = 125,
+            //    Description = "Golf",
+            //    ModelYear = 2017
+            //});
+            //_iCarService.Add(new Car()
+            //{
+            //    BrandId = 2,
+            //    ColorId = 2,
+            //    DailyPrice = 180,
+            //    Description = "Leon",
+            //    ModelYear = 2020
+            //});
             ReadCarsDetails();
             #endregion
         }
@@ -112,7 +112,7 @@ namespace ConsoleUI
         #region EFMethods
         private static void ReadCarsDetails()
         {
-            foreach (var carDetail in _iCarService.GetCarsDetails())
+            foreach (var carDetail in _iCarService.GetCarsDetails().Data)
             {
                 ReadCarsDetail(carDetail);
             }
