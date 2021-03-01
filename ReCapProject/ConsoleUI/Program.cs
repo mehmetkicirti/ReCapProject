@@ -15,6 +15,9 @@ namespace ConsoleUI
         private static ICarService _iCarService = new CarManager(new EFCarDal());
         private static IBrandService _iBrandService = new BrandManager(new EFBrandDal());
         private static IColorService _iColorService = new ColorManager(new EFColorDal());
+        private static IRentalService _iRentalService = new RentalManager(new EFRentalDal());
+        private static IUserService _iUserService = new UserManager(new EFUserDal());
+        private static ICustomerService _iCustomerService = new CustomerManager(new EFCustomerDal());
         static void Main(string[] args)
         {
             #region InMemory
@@ -46,6 +49,7 @@ namespace ConsoleUI
             //GetCarsOfDetails(); 
             #endregion
             #region EF
+            #region EntityAdd
             //_iBrandService.Add(new Brand()
             //{
             //    Name = "Volkswagen"
@@ -78,6 +82,58 @@ namespace ConsoleUI
             //    Description = "Leon",
             //    ModelYear = 2020
             //});
+            //_iUserService.Add(new User
+            //{
+            //    Email = "mehmetkicirti@hotmail.com",
+            //    FirstName = "Mehmet",
+            //    LastName = "KICIRTI",
+            //    Password = "1234"
+            //});
+            //_iUserService.Add(new User
+            //{
+            //    Email = "erenaktas@hotmail.com",
+            //    FirstName = "Eren",
+            //    LastName = "AKTAS",
+            //    Password = "1234"
+            //});
+            //_iUserService.Add(new User
+            //{
+            //    Email = "azadturk@hotmail.com",
+            //    FirstName = "Azad",
+            //    LastName = "TURK",
+            //    Password = "1234"
+            //});
+            //_iCustomerService.Add(new Customer
+            //{
+            //    UserId = 1,
+            //    CompanyName = "Veripark"
+            //});
+            //_iCustomerService.Add(new Customer
+            //{
+            //    UserId = 2,
+            //    CompanyName = "Veripark"
+            //});
+            //_iCustomerService.Add(new Customer
+            //{
+            //    UserId = 3,
+            //    CompanyName = "Veripark"
+            //}); 
+            #endregion
+            Console.WriteLine(_iRentalService.Add(new Rental
+            {
+                CarId = 1,
+                CustomerId = 1,
+                RentDate = DateTime.Today
+            }).Message);
+            Console.WriteLine("Car is not renting the following add method. Please look detail of description..");
+            Console.WriteLine("\n----------------------------------------------------------------------------------\n");
+            Console.WriteLine(_iRentalService.Add(new Rental
+            {
+                CarId = 1,
+                CustomerId = 1,
+                RentDate = DateTime.Now.AddDays(-15),
+                ReturnDate = DateTime.Now,
+            }).Message);
             ReadCarsDetails();
             #endregion
         }
@@ -130,6 +186,7 @@ namespace ConsoleUI
             }
             else Console.WriteLine("Araç Bulunamadı");
         }
+
         #endregion
 
     }

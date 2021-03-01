@@ -18,6 +18,7 @@ namespace Business.Concrete
         }
         public IResult Add(Car car)
         {
+            // the following rules will be in ValidationAspect give as an attribute
             if (car.Description.Length < 2)
             {
                 return new ErrorResult(Messages.CarNameAtLeastTwoCharacter);
@@ -26,7 +27,6 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.DailyPriceGreaterThanZero);
             }
-            //businessRules
             _iCarDal.Add(car);
             return new SuccessResult(Messages.SuccessfullyAdded);
         }
