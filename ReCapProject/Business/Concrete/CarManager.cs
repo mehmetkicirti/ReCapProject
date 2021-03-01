@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -27,6 +28,11 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.DailyPriceGreaterThanZero);
             }
+            var errorLogic = BusinessTool.GetFailedLogic(CheckAddedCarAlreadyExist(car.Id));
+            if (!errorLogic.IsSuccess)
+            {
+                return errorLogic;
+            }
             _iCarDal.Add(car);
             return new SuccessResult(Messages.SuccessfullyAdded);
         }
@@ -44,6 +50,11 @@ namespace Business.Concrete
 
         public IDataResult<Car> GetCarById(int id)
         {
+            var errorLogic = BusinessTool.GetFailedLogic(CheckCarIsExist(id));
+            if (!errorLogic.IsSuccess)
+            {
+                return new ErrorDataResult<Car>(null,errorLogic.Message);
+            }
             return new SuccessDataResult<Car>(_iCarDal.Get(c => c.Id == id), Messages.SuccessfullyGotObject);
         }
 
@@ -69,6 +80,24 @@ namespace Business.Concrete
         }
 
         #region Rules
+        private IResult CheckAddedCarAlreadyExist(int addedId)
+        {
+            var car = _iCarDal.Get(c => c.Id == addedId);
+            if(car != null)
+            {
+                return new ErrorResult(Messages.CarAlreadyExist);
+            }
+            return new SuccessResult();
+        }
+        private IResult CheckCarIsExist(int id)
+        {
+            var car = _iCarDal.Get(c => c.Id == id);
+            if (car == null)
+            {
+                return new ErrorResult(Messages.CarByIdNotFoundError);
+            }
+            return new SuccessResult();
+        }
         #endregion
     }
 }

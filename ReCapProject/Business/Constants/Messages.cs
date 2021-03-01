@@ -14,5 +14,7 @@ namespace Business.Constants
         public static string SuccessfullyListedObjects = "Başarıyla gelen objeler listelendi.";
         public static string SuccessfullyGotObject = "Uygulanan filtre sonucu başarıyla obje getirildi.";
         public static string RentedCarIsNotExistReturnedDate = "Aracın kiralanabilmesi için öncelikle teslim tarihi de belirtilmelidir.";
+        public static string CarByIdNotFoundError = "Filtrelenen Araca ait bilgi bulunamadı.";
+        internal static string CarAlreadyExist;
     }
 }

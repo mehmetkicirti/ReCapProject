@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Utilities\Constants\" />
+  </ItemGroup>
+
 </Project>
