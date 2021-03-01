@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,11 @@ namespace DataAccess.Concrete.InMemory
             return filter == null ?
                 Cars.ToList() :
                 Cars.AsQueryable().Where(filter).ToList();
+        }
+
+        public List<CarDetailDto> GetCarsDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Remove(Car entity)

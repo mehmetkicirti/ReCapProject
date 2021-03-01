@@ -2,6 +2,7 @@
 using Business.Constants;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 
@@ -20,7 +21,7 @@ namespace Business.Concrete
             {
                 throw new Exception(Messages.CarNameAtLeastTwoCharacter);
             }
-            if(car.DailyPrice > 0)
+            if(car.DailyPrice < 0)
             {
                 throw new Exception(Messages.DailyPriceGreaterThanZero);
             }
@@ -51,6 +52,11 @@ namespace Business.Concrete
         public List<Car> GetCarsByColorId(int colorId)
         {
             return _iCarDal.GetAll(c => c.ColorId == colorId);
+        }
+
+        public List<CarDetailDto> GetCarsDetails()
+        {
+            return _iCarDal.GetCarsDetails();
         }
 
         public void Update(Car car)

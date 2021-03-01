@@ -1,8 +1,11 @@
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\bin\Debug\netcoreapp3.1\Core.deps.json
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\bin\Debug\netcoreapp3.1\Core.dll
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\bin\Debug\netcoreapp3.1\Core.pdb
-C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.dll
 C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.pdb
+C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\bin\Debug\netcoreapp3.1\Core.runtimeconfig.json
+C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\bin\Debug\netcoreapp3.1\Core.runtimeconfig.dev.json
+C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\hp\Documents\ReCapProject\ReCapProject\Core\obj\Debug\netcoreapp3.1\Core.genruntimeconfig.cache

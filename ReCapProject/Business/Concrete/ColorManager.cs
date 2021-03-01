@@ -14,27 +14,27 @@ namespace Business.Concrete
         {
             _iColorDal = colorDal;
         }
-        public void Add(Brand color)
+        public void Add(Color color)
         {
             _iColorDal.Add(color);
         }
 
-        public void Delete(Brand color)
+        public void Delete(Color color)
         {
             _iColorDal.Remove(color);
         }
 
-        public List<Brand> GetAll()
+        public List<Color> GetAll()
         {
             return _iColorDal.GetAll();
         }
 
-        public Brand GetColorById(int id)
+        public Color GetColorById(int id)
         {
             return _iColorDal.Get(c => c.Id == id);
         }
 
-        public void Update(Brand color)
+        public void Update(Color color)
         {
             _iColorDal.Update(color);
         }

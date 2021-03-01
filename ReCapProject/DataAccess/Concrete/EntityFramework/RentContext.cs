@@ -10,10 +10,10 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-ONTQ2SMC;Initial Catalog=RentSystemDB;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-ONTQ2SMC;Initial Catalog=RentProjectDB;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Brand> Colors{ get; set; }
+        public DbSet<Color> Colors{ get; set; }
         public DbSet<Car> Cars { get; set; }
     }
 }

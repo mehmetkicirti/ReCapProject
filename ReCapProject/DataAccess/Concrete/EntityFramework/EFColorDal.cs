@@ -4,7 +4,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EFColorDal:EntityRepositoryBase<Brand,RentContext>,IColorDal
+    public class EFColorDal:EntityRepositoryBase<Color,RentContext>,IColorDal
     {
     }
 }
