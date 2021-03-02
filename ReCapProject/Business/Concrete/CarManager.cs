@@ -25,7 +25,7 @@ namespace Business.Concrete
             // the following rules will be in ValidationAspect give as an attribute
             
             var errorLogic = BusinessTool.GetFailedLogic(CheckAddedCarAlreadyExist(car.Id));
-            if (!errorLogic.IsSuccess)
+            if (errorLogic != null)
             {
                 return errorLogic;
             }
@@ -47,7 +47,7 @@ namespace Business.Concrete
         public IDataResult<Car> GetCarById(int id)
         {
             var errorLogic = BusinessTool.GetFailedLogic(CheckCarIsExist(id));
-            if (!errorLogic.IsSuccess)
+            if (errorLogic != null)
             {
                 return new ErrorDataResult<Car>(null,errorLogic.Message);
             }

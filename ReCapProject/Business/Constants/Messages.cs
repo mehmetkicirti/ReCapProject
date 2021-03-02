@@ -15,6 +15,9 @@ namespace Business.Constants
         public static string SuccessfullyGotObject = "Uygulanan filtre sonucu başarıyla obje getirildi.";
         public static string RentedCarIsNotExistReturnedDate = "Aracın kiralanabilmesi için öncelikle teslim tarihi de belirtilmelidir.";
         public static string CarByIdNotFoundError = "Filtrelenen Araca ait bilgi bulunamadı.";
-        internal static string CarAlreadyExist;
+        public static string CarAlreadyExist = "Eklemeye çalışılan araç daha önceden eklenmiş.";
+        public static string CarImageIdNotFoundError = "İlgili araba resmi bulunamadı.";
+        public static string CarIsNotExistError = "Resim eklemek istediğin arac bulunamadı.";
+        public static string CarImageLimitExceed = "Resim eklemek istediğin aracın sınırına ulaştın. Daha fazla resim ekleyemezsin.";
     }
 }
